@@ -41,13 +41,23 @@ or Copilot. It runs one of them as the worker and as the reviewers.
 Use the built-in graph or bring your own topology. Add reviewers, tests, and repair loops, then save
 the setup as a profile for the next task.
 
+## Skills and review graphs
+
+A skill is advice: the agent still decides whether to follow its reviewer's feedback and when to
+stop. A Zeroshot graph defines the required reviews and repair loop before execution; the engine
+follows it mechanically until the reviews accept or the retry limit is reached.
+
 The product site, [zeroshot.sh](https://zeroshot.sh/?utm_source=github&utm_medium=readme&utm_campaign=zeroshot), has the FAQ.
 
 **[▶ Video: a single agent vs. Zeroshot](https://x.com/eivindmeyer_cv/status/2106898797771288828)** (scripted)
 
 Questions, ideas, or a run worth showing? Join the [Zeroshot community on Discord](https://theopenengine.com/discord).
 
-## Install
+## Get started
+
+Prefer Cloud? [Cloud setup →](https://cloud.zeroshot.sh/docs)
+
+### Run locally
 
 ```bash
 npm install -g @the-open-engine-company/zeroshot
@@ -64,7 +74,7 @@ reuse the harness's existing login, including subscription-backed sessions. See 
 > **Zeroshot v8 is a hard interface cutover.** v8 replaces the Node.js runtime with a native
 > `zeroshot` binary.
 
-## Run your first task
+#### Run your first task
 
 This example uses Codex and keeps delivery local. **The worker edits the current Git worktree**,
 so start in a clean worktree intended for the task.
@@ -109,6 +119,11 @@ Visit `http://127.0.0.1:4173/ui/` and open **Runs**. Stopping the UI server leav
 running. The CLI also provides `zeroshot list`, `zeroshot status RUN_ID`, and `zeroshot logs RUN_ID`.
 
 For other harnesses and providers, see [Runtimes and connections](docs/concepts/runtimes-and-connections.md).
+
+### Run in the cloud
+
+Connect GitHub and bring your own model API keys.
+[Cloud setup guide →](https://cloud.zeroshot.sh/docs)
 
 ## What the built-in workflow does
 
