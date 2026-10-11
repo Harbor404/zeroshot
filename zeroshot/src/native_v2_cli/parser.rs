@@ -51,6 +51,7 @@ enum CliCommand {
     ///
     /// The built-in `cloud` target points to https://api.cloud.zeroshot.sh.
     /// Run `zeroshot target login cloud` to sign in.
+    /// See https://cloud.zeroshot.sh/docs for Cloud setup.
     Target {
         #[command(subcommand)]
         command: TargetCommand,
@@ -351,6 +352,10 @@ struct TargetServeArgs {
     #[arg(long, value_name = "DIRECTORY")]
     storage: PathBuf,
 
+    /// Write private operator diagnostics as JSON lines to stdout.
+    #[arg(long)]
+    operator_diagnostics_json: bool,
+
     #[arg(long, value_name = "PATH", hide = true)]
     bootstrap_key_file: Option<PathBuf>,
 }
@@ -363,7 +368,7 @@ enum TemplateName {
     /// A review, validation, and optional delivery workflow for code changes.
     SoftwareChange,
 
-    /// Ten bounded research iterations with independent evidence gates.
+    /// Research with ten iterations by default and independent evidence gates.
     AutoResearch,
 }
 

@@ -87,7 +87,7 @@ Options:
 ```text
 Manage named targets or serve a direct target.
 
-The built-in `cloud` target points to https://api.cloud.zeroshot.sh. Run `zeroshot target login cloud` to sign in.
+The built-in `cloud` target points to https://api.cloud.zeroshot.sh. Run `zeroshot target login cloud` to sign in. See https://cloud.zeroshot.sh/docs for Cloud setup.
 
 Usage: zeroshot target <COMMAND>
 
@@ -151,7 +151,7 @@ Builds with UI support also serve the profile editor and run history at /ui/. Th
 
 Direct mode is unauthenticated. Bind or publish it only on trusted networks.
 
-Usage: zeroshot target serve --listen <ADDRESS> --public-origin <ORIGIN> --storage <DIRECTORY>
+Usage: zeroshot target serve [OPTIONS] --listen <ADDRESS> --public-origin <ORIGIN> --storage <DIRECTORY>
 
 Options:
       --listen <ADDRESS>
@@ -164,6 +164,9 @@ Options:
 
       --storage <DIRECTORY>
           Directory that stores target state, UI profiles, and run data
+
+      --operator-diagnostics-json
+          Write private operator diagnostics as JSON lines to stdout
 
   -h, --help
           Print help (see a summary with '-h')
@@ -379,7 +382,7 @@ Options:
           Possible values:
           - single-worker:   A single general-purpose worker
           - software-change: A review, validation, and optional delivery workflow for code changes
-          - auto-research:   Ten bounded research iterations with independent evidence gates
+          - auto-research:   Research with ten iterations by default and independent evidence gates
 
       --runtime-config <FILE>
 
@@ -554,7 +557,7 @@ Arguments:
           Possible values:
           - single-worker:   A single general-purpose worker
           - software-change: A review, validation, and optional delivery workflow for code changes
-          - auto-research:   Ten bounded research iterations with independent evidence gates
+          - auto-research:   Research with ten iterations by default and independent evidence gates
 
 Options:
       --delivery <MODE>
@@ -771,7 +774,7 @@ Options:
           Possible values:
           - single-worker:   A single general-purpose worker
           - software-change: A review, validation, and optional delivery workflow for code changes
-          - auto-research:   Ten bounded research iterations with independent evidence gates
+          - auto-research:   Research with ten iterations by default and independent evidence gates
 
       --input <FILE>
           Load the graph's initial input from this JSON file
